@@ -11,7 +11,7 @@ services:
       - key: OLLAMA_URL
         value: http://ollama:11434
 
-  - type: pservice
+  - type: pserv
     name: chromadb
     env: docker
     image: chromadb/chroma:latest
@@ -22,7 +22,7 @@ services:
       name: chromadb-storage
       sizeGB: 1
 
-  - type: pservice
+  - type: pserv
     name: ollama
     env: docker
     image: ollama/ollama:latest
