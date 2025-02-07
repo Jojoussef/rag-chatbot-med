@@ -23,7 +23,6 @@ services:
     autoDeploy: true
 
   - name: ollama
-    type: privateService
     env: docker
     plan: free
     disk:
