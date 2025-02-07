@@ -1,31 +1,34 @@
 services:
-  - name: app
-    type: web
+  - type: web
+    name: app
     env: docker
-    repo: github.com/Jojoussef/rag-chatbot-med
-    plan: free # Change to 'starter' or 'pro' if needed
+    dockerfilePath: Dockerfile
+    port: 7860
+    autoDeploy: true
     envVars:
       - key: CHROMADB_URL
         value: http://chromadb:8000
       - key: OLLAMA_URL
         value: http://ollama:11434
-    healthCheckPath: /
-    autoDeploy: true
 
-  - name: chromadb
+  - type: pservice
+    name: chromadb
     env: docker
-    plan: free
+    image: chromadb/chroma:latest
+    port: 8000
+    autoDeploy: true
     disk:
-      name: chromadb-storage
       mountPath: /chroma/chroma
-      sizeGB: 1 # Adjust based on storage needs
-    autoDeploy: true
+      name: chromadb-storage
+      sizeGB: 1
 
-  - name: ollama
+  - type: pservice
+    name: ollama
     env: docker
-    plan: free
-    disk:
-      name: ollama-storage
-      mountPath: /root/.ollama
-      sizeGB: 1 # Adjust as needed
+    image: ollama/ollama:latest
+    port: 11434
     autoDeploy: true
+    disk:
+      mountPath: /root/.ollama
+      name: ollama-storage
+      sizeGB: 1
