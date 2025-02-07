@@ -13,7 +13,6 @@ services:
     autoDeploy: true
 
   - name: chromadb
-    type: privateService
     env: docker
     plan: free
     disk:
