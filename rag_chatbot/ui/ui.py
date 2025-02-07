@@ -267,7 +267,7 @@ class LocalChatbotUI:
             js=JS_LIGHT_THEME,
             css=CSS,
         ) as demo:
-            gr.Markdown("## Local RAG Chatbot 🤖")
+            gr.Markdown("## Your Medical Assistant 🤖")
             with gr.Tab("Interface"):
                 sidebar_state = gr.State(True)
                 with gr.Row(variant=self._variant, equal_height=False):

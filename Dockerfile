@@ -5,4 +5,4 @@ RUN pip install .
 
 EXPOSE 7860
 
-CMD ["python", "-m", "rag_chatbot", "--host", "host.docker.internal"]
+CMD ["python", "-m", "rag_chatbot", "--host", "localhost"]
